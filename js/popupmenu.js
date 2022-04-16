@@ -1,4 +1,4 @@
-const link_queue = [];
+const link_queue = ["https://stackoverflow.com/questions/1590247/how-do-you-implement-a-stack-and-a-queue-in-javascript"];
 
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
@@ -11,17 +11,21 @@ submit_button.addEventListener('click', () => {
     });
 
 tab_button.addEventListener('click', () => {
-var action_url = link_queue.shift();
-if(action_url == undefined){
-    var sampleArea = document.getElementById("sampleArea");
-    sampleArea.innerHTML = "You have went through everything!"
-}else{
-    chrome.tabs.create({ url: action_url });
-}
-
+    var action_url = link_queue.shift();
+    if(action_url == undefined){
+        var sampleArea = document.getElementById("sampleArea");
+        sampleArea.innerHTML = "You have went through everything!"
+    }else{
+        chrome.tabs.create({ url: action_url });
+    }
 });
 
 link_button.addEventListener('click', () => {
-var action_url = link_queue.shift();
-location = action_url;
+    var action_url = link_queue.shift();
+    if(action_url == undefined){
+        var sampleArea = document.getElementById("sampleArea");
+        sampleArea.innerHTML = "You have went through everything!"
+    }else{
+    chrome.tabs.update({ url: action_url });
+    }
 });
