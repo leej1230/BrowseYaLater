@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="../css/popmenu.css">
     <title>Document</title>
+    <script src="../js/popupmenu.js" defer></script>
 </head>
 <body>
     <div class="main_body">
@@ -12,18 +13,16 @@
             <p>Place Holder for Image</p>
         </div>
         <div class="links">
-            <p>Place Holder for Input</p>
-            <p>Place Holder for Link</p>
+            <textarea name="_link" id="mytext" placeholder="Link you want to visit later on"></textarea>
+            <button class="forms" id="submit_button">Send!</button>
             <!-- link input -->
             <!-- submit link -->
         </div>
         <div class="sessions">
-            <p>Place Holder for Open on New Tab</p>
-            <p>Place Holder for Open on Current Tab</p>
-            <!-- Open Tab -->
-            <!-- Open Link -->
+            <button class="tabs" id="open_button">Open on a New Tab!</button>
+            <button class="tabs" id="link_button">Open on a Current Tab!</button>
         </div>
+        <div id="sampleArea"></div>
     </div>
-    <script src="../js/popupmenu.js" defer></script>
 </body>
 </html>
