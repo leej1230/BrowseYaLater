@@ -1,19 +1,19 @@
 {
-	"name": "Browser Ya Later",
+	"name": "Browse Ya Later",
 	"manifest_version": 3,
 	"version": "0.1",
     "description": "Assists you to keep your focus by saving the links that you want to keep",
     "icons": {
-        "16": "img/logo16.png",
-        "48": "img/logo48.png",
-        "128": "img/logo128.png"
+        "16": "img/logo.png",
+        "48": "img/logo.png",
+        "128": "img/logo.png"
     },
-	"permissions": ["tabs", "activeTab","scripting"],
+	"permissions": ["tabs", "storage", "activeTab", "scripting"],
 	"action": {
         "default_icon": {
-            "16": "images/icon19.png",
-            "24": "images/icon19.png",
-            "32": "images/icon19.png" 
+            "16": "img/icon.png",
+            "24": "img/icon.png",
+            "32": "img/icon.png" 
         },
         "default_popup": "html/popupmenu.html"
     }

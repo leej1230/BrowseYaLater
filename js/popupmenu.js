@@ -1,4 +1,4 @@
-const link_queue = ["https://stackoverflow.com/questions/1590247/how-do-you-implement-a-stack-and-a-queue-in-javascript"];
+const link_queue = [];
 
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
@@ -6,6 +6,7 @@ const link_button = document.getElementById('link_button');
 
 submit_button.addEventListener('click', () => {
     const web_link = document.getElementById("mytext");
+    web_link.value = '';
     //mytext is id of input for in html
     link_queue.push(web_link.value);
     });
