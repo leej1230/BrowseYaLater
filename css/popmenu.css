@@ -1,7 +1,23 @@
 body{
-    width: 1000px;
+    width: 200px;
+    height: 500px;
 }
 .hello{
     color: #333;
     font-size: 30px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+}
+
+.main_body{
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sessions{
+    display: flex;
+    float: left;
 }
