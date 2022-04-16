@@ -1,0 +1,23 @@
+{
+	"name": "Browser Ya Later",
+	"manifest_version": 1,
+	"version": "0.1",
+    "description": "Assists you to keep your focus by saving the links that you want to keep",
+    "icons": {
+        "16": "logo16.png",
+        "48": "logo48.png",
+        "128": "logo128.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "icon19.png"
+        },
+        "default_popup": "html/popupmenu.html"
+    },
+	"permissions": ["activeTab","scripting"],
+	"background": {
+        "scripts": [ "background.js" ],
+        "persistent": false
+    },
+	"action": {}
+}
