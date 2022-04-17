@@ -2,19 +2,33 @@ body{
     background-image: linear-gradient(to bottom right, rgb(29, 40, 131), rgb(67, 61, 177));
     width: 300px;
     height: 400px;
-    font-family: Serif ;
+    font-family: fantasy;
+}
+
+.main_logo{
+    padding-top: 5px;
+    text-align: center;
+}
+
+.ext_name{
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
 }
 
 .links{
     font-size: 24px;
     display: flex;
-    align-items: center;
-    padding-top: 5px;
-    padding-left: 50px;
+    padding-top: 35px;
 	padding-bottom: 40px;    
 	color:  black;
 	font-size: 24px;
 	text-decoration: none;
+}
+
+.links button:first-of-type{
+    margin-left: 15px;
 }
 
 .main_body{
@@ -23,7 +37,8 @@ body{
 }
 
 .nav-links{
-    margin: 13px;
+    font-family: fantasy;
+    margin: 3px;
 }
 
 .nav-items {
@@ -32,8 +47,8 @@ body{
     border: none;
     color: #FFFFFF;
     text-align: center;
-    font-size: 12px;
-    padding: 20px;
+    font-size: 16px;
+    padding: 10px;
     width: 200px;
     transition: all 0.5s;
     cursor: pointer;
@@ -78,5 +93,5 @@ body{
 }
 
 .center{
-    align-items: center;
+    text-align: center;
 }
