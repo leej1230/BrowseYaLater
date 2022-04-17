@@ -1,45 +1,35 @@
-//const link_queue = [];
-// Load stuff into link_queue if exists
+function Queue() {
+	this.__a = new Array();
+}
+Queue.prototype.enqueue = function(o) {
+	this.__a.push(o);
+}
+Queue.prototype.dequeue = function() {
+	if( this.__a.length > 0 ) {
+		return this.__a.shift();
+	}
+	return null;
+}
+
+var link_queue = new Queue();
 
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
 const link_button = document.getElementById('link_button');
 
-//LOAD open
-// chrome.storage.local.get(['queuetoSAVE'], function(result) {
-//     console.log('Value currently is ' + result.key);
-//     if(result.key == undefined){
-//         const link_queue = [];
-//     }else{
-//         const link_queue = result.key.split(",");
-//     }
-// });
-var data1 = "placeholder";
-
-chrome.storage.local.get("memo1", function(result){
-    data1 = result.memo1;
-});
-
-
-const link_queue = [];
-if(data1 != undefined){
-    const link_queue = data1.split(",");
-}
-
+//Sending a Link to Queue
 submit_button.addEventListener('click', () => {
     const web_link = document.getElementById("mytext");
-    //mytext is id of input for in html
-    link_queue.push(web_link.value);
-    var queuetoSAVE = link_queue.join(',');
-
+    link_queue.enqueue(web_link.value);
+    //Empty input form
     web_link.value = '';
 
     // save
-    chrome.storage.local.set({"memo1": queuetoSAVE}, function(){ });
 });
 
+//Open on NEW tab
 tab_button.addEventListener('click', () => {
-    var action_url = link_queue.shift();
+    var action_url = link_queue.dequeue();
     if(action_url == undefined){
         var sampleArea = document.getElementById("sampleArea");
         sampleArea.innerHTML = "You have went through everything!"
@@ -49,14 +39,14 @@ tab_button.addEventListener('click', () => {
     // save
 });
 
+//Open on CURRENT tab
 link_button.addEventListener('click', () => {
-    var action_url = link_queue.shift();
+    var action_url = link_queue.dequeue();
     if(action_url == undefined){
         var sampleArea = document.getElementById("sampleArea");
         sampleArea.innerHTML = "You have went through everything!"
     }else{
-    chrome.tabs.update({ url: action_url });
+        chrome.tabs.update({ url: action_url });
     }
     // save
 });
-
