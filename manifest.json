@@ -1,8 +1,8 @@
 {
 	"name": "Browse Ya Later",
 	"manifest_version": 3,
-	"version": "0.1",
-    "description": "Assists you to keep your focus by saving the links that you want to keep",
+	"version": "0.9",
+    "description": "Assists you to keep your focus by saving the links that you want to visit",
     "icons": {
         "16": "img/logo.png",
         "48": "img/logo.png",
