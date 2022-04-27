@@ -1,30 +1,23 @@
-function Queue() {
-	this.__a = new Array();
-}
-Queue.prototype.enqueue = function(o) {
-	this.__a.push(o);
-}
-Queue.prototype.dequeue = function() {
-	if( this.__a.length > 0 ) {
-		return this.__a.shift();
-	}
-	return null;
-}
-
-var link_queue = new Queue();
-
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
 const link_button = document.getElementById('link_button');
 
+
 //Sending a Link to Queue
 submit_button.addEventListener('click', () => {
-    const web_link = document.getElementById("mytext");
-    link_queue.enqueue(web_link.value);
+    const web_link = document.getElementById("mytext"); //Get input link
+
+    chrome.storage.local.get(['number_of_tabs'], function(number) {
+        if(number.number_of_tabs == undefined){ //Initialize process
+            number.number_of_tabs=-1;
+        }
+        var tmp = number.number_of_tabs+1;
+        chrome.storage.local.set({"number_of_tabs":tmp}, function(){});
+        alert('Value currently is ' + tmp);
+    })
+
     //Empty input form
     web_link.value = '';
-
-    // save
 });
 
 //Open on NEW tab
