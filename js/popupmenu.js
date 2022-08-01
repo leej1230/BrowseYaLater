@@ -1,3 +1,5 @@
+import { Dexie } from '../node_modules/dexie/dist/dexie.mjs';
+
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
 const link_button = document.getElementById('link_button');
@@ -7,11 +9,11 @@ var DBName = 'browseyalater';
 //Sending a Link to Queue
 submit_button.addEventListener('click', () => {
     const web_link = document.getElementById("mytext"); //Get input link
-    alert('Input is: ' + web_link.value);
     if(web_link.value){
+        console.log('Input is: ' + web_link.value);
         var db = new Dexie(DBName);
         // Data store name: URL, Key is auto increment, Data: URLAddress
-        db.version(1).stores({
+        db.version(2).stores({
             URL: '++id, URLAddress'
         });
 
