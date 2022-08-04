@@ -9,8 +9,9 @@ Completion of project is pretty near. Stay Tuned!
 - [x] Test local storage chrome API and see how it works (Update: used Indexed DB with Dexie.js)
 - [x] Find the way to save link on local storage
 - [x] Find the way to save string array on local storage
-- [ ] Find the way to change the inside of the array
-- [ ] Make sure the extention works properly
+- [x] Find the way to change the inside of the array
+- [x] Make sure the extention works properly
+- [ ] Make the queue work
 - [ ] Go over HTML or CSS to see if the project projects properly on any devices
 - [ ] Submit to extention store
 - [ ] Completion!
