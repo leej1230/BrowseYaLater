@@ -8,7 +8,7 @@
         "48": "img/logo.png",
         "128": "img/logo.png"
     },
-	"permissions": ["tabs", "storage", "activeTab", "scripting"],
+	"permissions": ["tabs", "scripting"],
 	"action": {
         "default_icon": {
             "16": "img/icon.png",
