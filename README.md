@@ -11,9 +11,9 @@ Completion of project is pretty near. Stay Tuned!
 - [x] Find the way to save string array on local storage
 - [x] Find the way to change the inside of the array
 - [x] Make sure the extention works properly
-- [ ] Make the queue work
+- [x] Make the queue work
 - [ ] Go over HTML or CSS to see if the project projects properly on any devices
-- [ ] Submit to extention store
+- [x] Submit to extention store
 - [ ] Completion!
 ### Future TODO List
 - [ ] Make a button that shows the list of browsers

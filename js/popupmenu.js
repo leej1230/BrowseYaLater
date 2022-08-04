@@ -1,10 +1,15 @@
 import { Dexie } from '../node_modules/dexie/dist/dexie.mjs';
 import db from './db.js';
 
+const DBName = 'browseyalater';
+
 const submit_button = document.getElementById('submit_button');
 const tab_button = document.getElementById('open_button');
 const link_button = document.getElementById('link_button');
 
+function list_empty(){
+    alert("The Queue is empty! Time to save links!");
+}
 
 //Sending a Link to Queue
 submit_button.addEventListener('click', () => {
@@ -25,33 +30,41 @@ submit_button.addEventListener('click', () => {
 
 tab_button.addEventListener('click', () => {
     console.log('Output Test');
-    db.URL.get(2).then(function(d){
-        if(!d){
-            console.log("The data was undefined");
-        }else{
-            console.log('Output Test2');
-            console.log("Earned Data: " + d.URLAddress);
-            chrome.tabs.create({ url: d.URLAddress });
+    db.table("URL").toArray().then((val_tab)=>{
+        const tab_len = val_tab["length"];
+        console.log(val_tab);
+        console.log("Accessing Value Test: " + val_tab[0]["URLAddress"]);
+        if(tab_len > 0){
+            const linktoaccess = val_tab[0]["URLAddress"];
+            const arrtosave = val_tab.shift();
+            db.table("URL").clear();
+            console.log(arrtosave);
+            db.URL.bulkAdd(val_tab);
+            chrome.tabs.create({ url: linktoaccess });
         }
-    }).catch(function(error) {
-        console.log('Error has occured');
-        console.error(error);
+    }).catch(() => {
+        Dexie.delete(DBName);
+        list_empty();
     });
 });
 
 //Open on CURRENT tab
 link_button.addEventListener('click', () => {
     console.log('Output Test');
-    db.URL.get(2).then(function(d){
-        if(!d){
-            console.log("The data was undefined");
-        }else{
-            console.log('Output Test2');
-            console.log("Earned Data: " + d.URLAddress);
-            chrome.tabs.update({ url: d.URLAddress });
+    db.table("URL").toArray().then((val_tab)=>{
+        const tab_len = val_tab["length"];
+        console.log(val_tab);
+        console.log("Accessing Value Test: " + val_tab[0]["URLAddress"]);
+        if(tab_len > 0){
+            const linktoaccess = val_tab[0]["URLAddress"];
+            const arrtosave = val_tab.shift();
+            db.table("URL").clear();
+            console.log(arrtosave);
+            db.URL.bulkAdd(val_tab);
+            chrome.tabs.update({ url: linktoaccess });
         }
-    }).catch(function(error) {
-        console.log('Error has occured');
-        console.error(error);
+    }).catch(() => {
+        Dexie.delete(DBName);
+        list_empty();
     });
 });

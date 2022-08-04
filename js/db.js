@@ -1,5 +1,5 @@
 import { Dexie } from '../node_modules/dexie/dist/dexie.mjs';
-var DBName = 'browseyalater';
+const DBName = 'browseyalater';
 
 const db = new Dexie(DBName);
 db.version(1).stores({
